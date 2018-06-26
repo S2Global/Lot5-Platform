@@ -9,7 +9,57 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<header>
+    <nav class="navbar navbar-default" >
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a <%= link_to('Lot5 Platform', "/") %></a></li>
+          <li><a href="/projects">Projects</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to(current_user.name, '/users/' + current_user.id.to_s) %></li>
+            <li><a <%= link_to('Logout', destroy_user_session_path, method: :delete) %></a></li>
+          <% else %>
+            <li><%= link_to('Login', new_user_session_path) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </header>
+
   <body>
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      </div>
   </body>
 </html>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{latest-api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>

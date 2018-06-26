@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ability.name %>
+</p>
+
+<p>
+  <strong>Range:</strong>
+  <%= @ability.range %>
+</p>
+
+<p>
+  <strong>Effect:</strong>
+  <%= @ability.effect %>
+</p>
+
+<p>
+  <strong>Flair:</strong>
+  <%= @ability.flair %>
+</p>
+
+<%= link_to 'Edit', edit_ability_path(@ability) %> |
+<%= link_to 'Back', abilities_path %>

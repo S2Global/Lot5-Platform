@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @character.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @character.level %>
+</p>
+
+<p>
+  <strong>Exp:</strong>
+  <%= @character.exp %>
+</p>
+
+<p>
+  <strong>Arch:</strong>
+  <%= @character.arch %>
+</p>
+
+<p>
+  <strong>Race:</strong>
+  <%= @character.race %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @character.class %>
+</p>
+
+<p>
+  <strong>Hp:</strong>
+  <%= @character.hp %>
+</p>
+
+<p>
+  <strong>Cp:</strong>
+  <%= @character.cp %>
+</p>
+
+<p>
+  <strong>Sp:</strong>
+  <%= @character.sp %>
+</p>
+
+<p>
+  <strong>Gp:</strong>
+  <%= @character.gp %>
+</p>
+
+<p>
+  <strong>Pp:</strong>
+  <%= @character.pp %>
+</p>
+
+<p>
+  <strong>Locationx:</strong>
+  <%= @character.locationX %>
+</p>
+
+<p>
+  <strong>Locationy:</strong>
+  <%= @character.locationY %>
+</p>
+
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Back', characters_path %>

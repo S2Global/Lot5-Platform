@@ -1,0 +1,82 @@
+<%= form_with(model: character, local: true) do |form| %>
+  <% if character.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
+
+      <ul>
+      <% character.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level %>
+    <%= form.number_field :level %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exp %>
+    <%= form.number_field :exp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :arch %>
+    <%= form.text_field :arch %>
+  </div>
+
+  <div class="field">
+    <%= form.label :race %>
+    <%= form.text_field :race %>
+  </div>
+
+  <div class="field">
+    <%= form.label :class %>
+    <%= form.text_field :class %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hp %>
+    <%= form.number_field :hp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cp %>
+    <%= form.number_field :cp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sp %>
+    <%= form.number_field :sp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gp %>
+    <%= form.number_field :gp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pp %>
+    <%= form.number_field :pp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :locationX %>
+    <%= form.number_field :locationX %>
+  </div>
+
+  <div class="field">
+    <%= form.label :locationY %>
+    <%= form.number_field :locationY %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
