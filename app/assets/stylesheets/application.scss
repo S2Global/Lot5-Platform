@@ -16,3 +16,12 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th {
+	height: 50px;
+}
