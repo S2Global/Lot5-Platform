@@ -9,11 +9,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<header>
+  <header>
     <nav class="navbar navbar-default" >
       <div class="container-fluid">
         <ul class="nav navbar-nav">
-          <li><a <%= link_to('Lot5 Platform', "/") %></a></li>
+          <li><a href="/" title="Home"> <%= image_tag 'logo_round.png', :style => 'height: 40px;' %> </a></li>
+          <li><a <%= link_to('Rules', "/") %></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -34,11 +35,9 @@
   </header>
 
   <body>
-    <div class="container">
-      <%= yield %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
+    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   </body>
 </html>
 

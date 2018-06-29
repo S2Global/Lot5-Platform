@@ -25,3 +25,30 @@ table {
 th {
 	height: 50px;
 }
+
+body {
+	background-image: image_url("paper.jpg")
+}
+
+.navbar {
+	margin-bottom:0;
+}
+
+.navbar-nav > li > a {
+	line-height: 30px;
+	line-width: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.nav {
+	margin-bottom:0;
+    font-size: 18px;
+}
+
+.jumbotron {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+}
