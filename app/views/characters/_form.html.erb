@@ -16,10 +16,7 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :level %>
-    <%= form.number_field :level %>
-  </div>
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div class="field">
     <%= form.label :exp %>
@@ -27,54 +24,21 @@
   </div>
 
   <div class="field">
-    <%= form.label :arch %>
-    <%= form.text_field :arch %>
+      <%= form.label :archetype_id %><br/>
+      <%= form.collection_select :archetype_id,  Archetype.order('name ASC'), :id, :name, include_blank: false %>
   </div>
 
   <div class="field">
-    <%= form.label :race %>
-    <%= form.text_field :race %>
+      <%= form.label :race_id %><br/>
+      <%= form.collection_select :race_id,  Race.order('name ASC'), :id, :name, include_blank: false %>
   </div>
 
   <div class="field">
-    <%= form.label :class %>
-    <%= form.text_field :class %>
+    <%= form.label :role %>
+    <%= form.text_field :role %>
   </div>
 
-  <div class="field">
-    <%= form.label :hp %>
-    <%= form.number_field :hp %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cp %>
-    <%= form.number_field :cp %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sp %>
-    <%= form.number_field :sp %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gp %>
-    <%= form.number_field :gp %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pp %>
-    <%= form.number_field :pp %>
-  </div>
-
-  <div class="field">
-    <%= form.label :locationX %>
-    <%= form.number_field :locationX %>
-  </div>
-
-  <div class="field">
-    <%= form.label :locationY %>
-    <%= form.number_field :locationY %>
-  </div>
+  <%= form.hidden_field :gp, value: 5 %>
 
   <div class="actions">
     <%= form.submit %>

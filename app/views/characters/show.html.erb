@@ -1,69 +1,73 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Name:</strong>
-  <%= @character.name %>
-</p>
+  <h1> <%= @character.name %> </h1>
 
-<p>
-  <strong>Level:</strong>
-  <%= @character.level %>
-</p>
+  <p>
+    <strong>User:</strong>
+    <%= @character.user.name %>
+  </p>
 
-<p>
-  <strong>Exp:</strong>
-  <%= @character.exp %>
-</p>
+  <p>
+    <strong>Level:</strong>
+    <%= @character.level %>
+  </p>
 
-<p>
-  <strong>Arch:</strong>
-  <%= @character.arch %>
-</p>
+  <p>
+    <strong>Exp:</strong>
+    <%= @character.exp %>
+  </p>
 
-<p>
-  <strong>Race:</strong>
-  <%= @character.race %>
-</p>
+  <p>
+    <strong>Arch:</strong>
+    <%= @character.archetype.name %>
+  </p>
 
-<p>
-  <strong>Class:</strong>
-  <%= @character.class %>
-</p>
+  <p>
+    <strong>Race:</strong>
+    <%= @character.race.name %>
+  </p>
 
-<p>
-  <strong>Hp:</strong>
-  <%= @character.hp %>
-</p>
+  <p>
+    <strong>Class:</strong>
+    <%= @character.role %>
+  </p>
 
-<p>
-  <strong>Cp:</strong>
-  <%= @character.cp %>
-</p>
+  <p>
+    <strong>Hp:</strong>
+    <%= @character.hp %>
+  </p>
 
-<p>
-  <strong>Sp:</strong>
-  <%= @character.sp %>
-</p>
+  <p>
+    <strong>Cp:</strong>
+    <%= @character.cp %>
+  </p>
 
-<p>
-  <strong>Gp:</strong>
-  <%= @character.gp %>
-</p>
+  <p>
+    <strong>Sp:</strong>
+    <%= @character.sp %>
+  </p>
 
-<p>
-  <strong>Pp:</strong>
-  <%= @character.pp %>
-</p>
+  <p>
+    <strong>Gp:</strong>
+    <%= @character.gp %>
+  </p>
 
-<p>
-  <strong>Locationx:</strong>
-  <%= @character.locationX %>
-</p>
+  <p>
+    <strong>Pp:</strong>
+    <%= @character.pp %>
+  </p>
 
-<p>
-  <strong>Locationy:</strong>
-  <%= @character.locationY %>
-</p>
+  <p>
+    <strong>Locx:</strong>
+    <%= @character.locX %>
+  </p>
 
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Back', characters_path %>
+  <p>
+    <strong>Locy:</strong>
+    <%= @character.locY %>
+  </p>
+
+  <%= link_to 'Edit', edit_character_path(@character) %> |
+  <%= link_to 'Back', characters_path %>
+
+</div>

@@ -2,30 +2,32 @@
 
 one:
   name: MyString
+  user: one
   level: 1
   exp: 1
-  arch: MyString
-  race: MyString
-  class: MyString
+  archetype: one
+  race: one
+  role: MyString
   hp: 1
   cp: 1
   sp: 1
   gp: 1
   pp: 1
-  locationX: 1
-  locationY: 1
+  locX: 1
+  locY: 1
 
 two:
   name: MyString
+  user: two
   level: 1
   exp: 1
-  arch: MyString
-  race: MyString
-  class: MyString
+  archetype: two
+  race: two
+  role: MyString
   hp: 1
   cp: 1
   sp: 1
   gp: 1
   pp: 1
-  locationX: 1
-  locationY: 1
+  locX: 1
+  locY: 1

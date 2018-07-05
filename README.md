@@ -2,4 +2,4 @@
 
 Lot5 Character and Rules Platform.
 
-S2Global
+S2Global Group

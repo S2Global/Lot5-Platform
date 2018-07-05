@@ -17,7 +17,7 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create character" do
     assert_difference('Character.count') do
-      post characters_url, params: { character: { arch: @character.arch, class: @character.class, cp: @character.cp, exp: @character.exp, gp: @character.gp, hp: @character.hp, level: @character.level, locationX: @character.locationX, locationY: @character.locationY, name: @character.name, pp: @character.pp, race: @character.race, sp: @character.sp } }
+      post characters_url, params: { character: { archetype_id: @character.archetype_id, cp: @character.cp, exp: @character.exp, gp: @character.gp, hp: @character.hp, level: @character.level, locX: @character.locX, locY: @character.locY, name: @character.name, pp: @character.pp, race_id: @character.race_id, role: @character.role, sp: @character.sp, user_id: @character.user_id } }
     end
 
     assert_redirected_to character_url(Character.last)
@@ -34,7 +34,7 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update character" do
-    patch character_url(@character), params: { character: { arch: @character.arch, class: @character.class, cp: @character.cp, exp: @character.exp, gp: @character.gp, hp: @character.hp, level: @character.level, locationX: @character.locationX, locationY: @character.locationY, name: @character.name, pp: @character.pp, race: @character.race, sp: @character.sp } }
+    patch character_url(@character), params: { character: { archetype_id: @character.archetype_id, cp: @character.cp, exp: @character.exp, gp: @character.gp, hp: @character.hp, level: @character.level, locX: @character.locX, locY: @character.locY, name: @character.name, pp: @character.pp, race_id: @character.race_id, role: @character.role, sp: @character.sp, user_id: @character.user_id } }
     assert_redirected_to character_url(@character)
   end
 

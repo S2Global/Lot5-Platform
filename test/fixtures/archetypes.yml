@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  hp_level: MyString
+  skill_1: MyString
+  skill_2: MyString
+  skill_3: MyString
+  skill_4: MyString
+  skill_5: MyString
+  skill_6: MyString
+  skill_7: MyString
+  skill_8: MyString
+  skill_9: MyString
+  skill_10: MyString
+
+two:
+  name: MyString
+  description: MyString
+  hp_level: MyString
+  skill_1: MyString
+  skill_2: MyString
+  skill_3: MyString
+  skill_4: MyString
+  skill_5: MyString
+  skill_6: MyString
+  skill_7: MyString
+  skill_8: MyString
+  skill_9: MyString
+  skill_10: MyString

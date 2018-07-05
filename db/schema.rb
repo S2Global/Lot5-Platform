@@ -10,43 +10,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_26_033739) do
+ActiveRecord::Schema.define(version: 2018_07_05_145824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "abilities", force: :cascade do |t|
     t.string "name"
+    t.bigint "character_id"
     t.string "range"
     t.string "effect"
     t.string "flair"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_abilities_on_character_id"
+  end
+
+  create_table "archetypes", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "hp_level"
+    t.string "skill_1"
+    t.string "skill_2"
+    t.string "skill_3"
+    t.string "skill_4"
+    t.string "skill_5"
+    t.string "skill_6"
+    t.string "skill_7"
+    t.string "skill_8"
+    t.string "skill_9"
+    t.string "skill_10"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
+    t.bigint "user_id"
     t.integer "level"
     t.integer "exp"
-    t.string "arch"
-    t.string "race"
-    t.string "class"
+    t.bigint "archetype_id"
+    t.bigint "race_id"
+    t.string "role"
     t.integer "hp"
     t.integer "cp"
     t.integer "sp"
     t.integer "gp"
     t.integer "pp"
-    t.integer "locationX"
-    t.integer "locationY"
+    t.integer "locX"
+    t.integer "locY"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["archetype_id"], name: "index_characters_on_archetype_id"
+    t.index ["race_id"], name: "index_characters_on_race_id"
+    t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
+    t.bigint "character_id"
     t.string "description"
     t.integer "uses"
     t.integer "durability"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_items_on_character_id"
+  end
+
+  create_table "races", force: :cascade do |t|
+    t.string "name"
+    t.string "lore"
+    t.string "advantage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,4 +112,9 @@ ActiveRecord::Schema.define(version: 2018_06_26_033739) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "abilities", "characters"
+  add_foreign_key "characters", "archetypes"
+  add_foreign_key "characters", "races"
+  add_foreign_key "characters", "users"
+  add_foreign_key "items", "characters"
 end

@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  get 'user/show'
-  get 'users/show'
-	get 'user/show'
-	get 'home/index'
-	resources :characters
-	resources :abilities
-	resources :items
+  resources :items
+  resources :abilities
+  resources :characters
 	devise_for :users, controllers: {:omniauth_callbacks => "callbacks"}
+	resources :characters do
+		resources :abilities
+	end
+	resources :characters do
+		resources :items
+	end
 
 	get 'users/:id' => 'user#show'
 	root "home#index"

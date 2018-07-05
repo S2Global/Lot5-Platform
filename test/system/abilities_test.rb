@@ -14,6 +14,7 @@ class AbilitiesTest < ApplicationSystemTestCase
     visit abilities_url
     click_on "New Ability"
 
+    fill_in "Character", with: @ability.character_id
     fill_in "Effect", with: @ability.effect
     fill_in "Flair", with: @ability.flair
     fill_in "Name", with: @ability.name
@@ -28,6 +29,7 @@ class AbilitiesTest < ApplicationSystemTestCase
     visit abilities_url
     click_on "Edit", match: :first
 
+    fill_in "Character", with: @ability.character_id
     fill_in "Effect", with: @ability.effect
     fill_in "Flair", with: @ability.flair
     fill_in "Name", with: @ability.name

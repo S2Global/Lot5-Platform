@@ -14,6 +14,7 @@ class ItemsTest < ApplicationSystemTestCase
     visit items_url
     click_on "New Item"
 
+    fill_in "Character", with: @item.character_id
     fill_in "Description", with: @item.description
     fill_in "Durability", with: @item.durability
     fill_in "Name", with: @item.name
@@ -28,6 +29,7 @@ class ItemsTest < ApplicationSystemTestCase
     visit items_url
     click_on "Edit", match: :first
 
+    fill_in "Character", with: @item.character_id
     fill_in "Description", with: @item.description
     fill_in "Durability", with: @item.durability
     fill_in "Name", with: @item.name

@@ -2,12 +2,14 @@
 
 one:
   name: MyString
+  character: one
   range: MyString
   effect: MyString
   flair: MyString
 
 two:
   name: MyString
+  character: two
   range: MyString
   effect: MyString
   flair: MyString

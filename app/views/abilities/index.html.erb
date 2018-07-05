@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Character</th>
       <th>Range</th>
       <th>Effect</th>
       <th>Flair</th>
@@ -17,6 +18,7 @@
     <% @abilities.each do |ability| %>
       <tr>
         <td><%= ability.name %></td>
+        <td><%= ability.character %></td>
         <td><%= ability.range %></td>
         <td><%= ability.effect %></td>
         <td><%= ability.flair %></td>

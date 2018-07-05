@@ -2,12 +2,14 @@
 
 one:
   name: MyString
+  character: one
   description: MyString
   uses: 1
   durability: 1
 
 two:
   name: MyString
+  character: two
   description: MyString
   uses: 1
   durability: 1

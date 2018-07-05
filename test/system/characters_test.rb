@@ -14,19 +14,20 @@ class CharactersTest < ApplicationSystemTestCase
     visit characters_url
     click_on "New Character"
 
-    fill_in "Arch", with: @character.arch
-    fill_in "Class", with: @character.class
+    fill_in "Archetype", with: @character.archetype_id
     fill_in "Cp", with: @character.cp
     fill_in "Exp", with: @character.exp
     fill_in "Gp", with: @character.gp
     fill_in "Hp", with: @character.hp
     fill_in "Level", with: @character.level
-    fill_in "Locationx", with: @character.locationX
-    fill_in "Locationy", with: @character.locationY
+    fill_in "Locx", with: @character.locX
+    fill_in "Locy", with: @character.locY
     fill_in "Name", with: @character.name
     fill_in "Pp", with: @character.pp
-    fill_in "Race", with: @character.race
+    fill_in "Race", with: @character.race_id
+    fill_in "Role", with: @character.role
     fill_in "Sp", with: @character.sp
+    fill_in "User", with: @character.user_id
     click_on "Create Character"
 
     assert_text "Character was successfully created"
@@ -37,19 +38,20 @@ class CharactersTest < ApplicationSystemTestCase
     visit characters_url
     click_on "Edit", match: :first
 
-    fill_in "Arch", with: @character.arch
-    fill_in "Class", with: @character.class
+    fill_in "Archetype", with: @character.archetype_id
     fill_in "Cp", with: @character.cp
     fill_in "Exp", with: @character.exp
     fill_in "Gp", with: @character.gp
     fill_in "Hp", with: @character.hp
     fill_in "Level", with: @character.level
-    fill_in "Locationx", with: @character.locationX
-    fill_in "Locationy", with: @character.locationY
+    fill_in "Locx", with: @character.locX
+    fill_in "Locy", with: @character.locY
     fill_in "Name", with: @character.name
     fill_in "Pp", with: @character.pp
-    fill_in "Race", with: @character.race
+    fill_in "Race", with: @character.race_id
+    fill_in "Role", with: @character.role
     fill_in "Sp", with: @character.sp
+    fill_in "User", with: @character.user_id
     click_on "Update Character"
 
     assert_text "Character was successfully updated"
