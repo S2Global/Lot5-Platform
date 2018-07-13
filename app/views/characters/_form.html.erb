@@ -38,9 +38,49 @@
     <%= form.text_field :role %>
   </div>
 
+  <div class="field">
+    <%= form.label :strength %>
+    <%= form.number_field :strength, :value => 0 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vitality %>
+    <%= form.number_field :vitality, :value => 0  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :intelligence %>
+    <%= form.number_field :intelligence, :value => 0  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dexterity %>
+    <%= form.number_field :dexterity, :value => 0  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :agility %>
+    <%= form.number_field :agility, :value => 0  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wisdom %>
+    <%= form.number_field :wisdom, :value => 0  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :charisma %>
+    <%= form.number_field :charisma, :value => 0  %>
+  </div>
+
   <%= form.hidden_field :gp, value: 5 %>
+
+  <%= form.hidden_field :alive, value: true %>
+
+  <%= form.hidden_field :played, value: 0 %>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>

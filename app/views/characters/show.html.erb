@@ -2,72 +2,116 @@
 
   <h1> <%= @character.name %> </h1>
 
-  <p>
-    <strong>User:</strong>
-    <%= @character.user.name %>
-  </p>
+  <div class="row">
 
-  <p>
-    <strong>Level:</strong>
-    <%= @character.level %>
-  </p>
+    <div class="col-sm-6">
 
-  <p>
-    <strong>Exp:</strong>
-    <%= @character.exp %>
-  </p>
+      <p>
+        <strong>User:</strong>
+        <%= @character.user.name %>
+      </p>
 
-  <p>
-    <strong>Arch:</strong>
-    <%= @character.archetype.name %>
-  </p>
+      <p>
+        <strong>Arch:</strong>
+        <%= @character.archetype.name %>
+      </p>
 
-  <p>
-    <strong>Race:</strong>
-    <%= @character.race.name %>
-  </p>
+      <p>
+        <strong>Race:</strong>
+        <%= @character.race.name %>
+      </p>
 
-  <p>
-    <strong>Class:</strong>
-    <%= @character.role %>
-  </p>
+      <p>
+        <strong>Class:</strong>
+        <%= @character.role %>
+      </p>
 
-  <p>
-    <strong>Hp:</strong>
-    <%= @character.hp %>
-  </p>
+      <p>
+        <strong>Str:</strong>
+        <%= @character.strength %>
+      </p>
 
-  <p>
-    <strong>Cp:</strong>
-    <%= @character.cp %>
-  </p>
+      <p>
+        <strong>Vit:</strong>
+        <%= @character.vitality %>
+      </p>
 
-  <p>
-    <strong>Sp:</strong>
-    <%= @character.sp %>
-  </p>
+      <p>
+        <strong>Int:</strong>
+        <%= @character.intelligence %>
+      </p>
 
-  <p>
-    <strong>Gp:</strong>
-    <%= @character.gp %>
-  </p>
+      <p>
+        <strong>Dex:</strong>
+        <%= @character.dexterity %>
+      </p>
 
-  <p>
-    <strong>Pp:</strong>
-    <%= @character.pp %>
-  </p>
+      <p>
+        <strong>Agi:</strong>
+        <%= @character.agility %>
+      </p>
 
-  <p>
-    <strong>Locx:</strong>
-    <%= @character.locX %>
-  </p>
+      <p>
+        <strong>Wis:</strong>
+        <%= @character.wisdom %>
+      </p>
 
-  <p>
-    <strong>Locy:</strong>
-    <%= @character.locY %>
-  </p>
+      <p>
+        <strong>Cha:</strong>
+        <%= @character.charisma %>
+      </p>
 
-  <%= link_to 'Edit', edit_character_path(@character) %> |
-  <%= link_to 'Back', characters_path %>
+    </div>
+
+    <div class="col-sm-6">
+
+      <p>
+        <strong>Level:</strong>
+        <%= @character.level %>
+      </p>
+
+      <p>
+        <strong>Exp:</strong>
+        <%= @character.exp %>
+      </p>
+
+      <p>
+        <strong>Hp:</strong>
+        <%= @character.hp %>
+      </p>
+
+      <p>
+        <strong>Cp:</strong>
+        <%= @character.cp %>
+      </p>
+
+      <p>
+        <strong>Sp:</strong>
+        <%= @character.sp %>
+      </p>
+
+      <p>
+        <strong>Gp:</strong>
+        <%= @character.gp %>
+      </p>
+
+      <p>
+        <strong>Pp:</strong>
+        <%= @character.pp %>
+      </p>
+
+      <p>
+        <strong>Locx:</strong>
+        <%= @character.locX %>
+      </p>
+
+      <p>
+        <strong>Locy:</strong>
+        <%= @character.locY %>
+      </p>
+  
+    </div>
+
+  </div>
 
 </div>

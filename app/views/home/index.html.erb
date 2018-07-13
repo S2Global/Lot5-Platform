@@ -8,3 +8,44 @@
 		<p>Killed by a lucky goblin.</p>
 	</div>
 </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+	  <h2>Most Played</h2>
+	  <div class="row">
+	  	<% @characters.each do |character| %>
+			<div class="col-sm-4">
+			    <div class="charchar-inverse" style="width: 30rem;">
+				  <div class="charchar-header"><%= character.name %></div>
+			      <div class="charchar-body">
+			      	<p class="charchar-text"><%= character.race.name %></p>
+			      	<p class="charchar-text"><%= character.archetype.name %></p>
+			      	<p class="charchar-subtitle mb-2 text-muted"><%= character.user.name %></p>
+			      </div>
+			    </div>
+			</div>
+		<% end %>
+	  </div>
+	  <br>
+	  <h2>Memorial Wall</h2>
+	  <div class="row">
+	  	<% @characters_deceased.each do |character| %>
+			<div class="col-sm-4">
+			    <div class="charchar-inverse" style="width: 30rem;">
+				  <div class="charchar-header"><%= character.name %></div>
+			      <div class="charchar-body">
+			      	<p class="charchar-text"><%= character.race.name %></p>
+			      	<p class="charchar-text"><%= character.archetype.name %></p>
+			      	<p class="charchar-subtitle mb-2 text-muted"><%= character.user.name %></p>
+			      </div>
+			    </div>
+			</div>
+		<% end %>
+	  </div>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+</div>

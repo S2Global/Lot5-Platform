@@ -9,12 +9,21 @@ class CreateCharacters < ActiveRecord::Migration[5.2]
       t.references :race, foreign_key: true
       t.string :role
       t.integer :hp
+      t.integer :strength
+      t.integer :vitality
+      t.integer :intelligence
+      t.integer :dexterity
+      t.integer :agility
+      t.integer :wisdom
+      t.integer :charisma
       t.integer :cp
       t.integer :sp
       t.integer :gp
       t.integer :pp
       t.integer :locX
       t.integer :locY
+      t.integer :played
+      t.boolean :alive
 
       t.timestamps
     end

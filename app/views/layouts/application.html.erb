@@ -15,6 +15,7 @@
         <ul class="nav navbar-nav">
           <li><a href="/" title="Home"> <%= image_tag 'logo_round.png', :style => 'height: 35px;' %> </a></li>
           <li><a <%= link_to('Rules', "/") %></a></li>
+          <li><a <%= link_to('Characters', characters_path) %></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -36,8 +37,13 @@
 
   <body>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <br>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
   </body>
 </html>
 

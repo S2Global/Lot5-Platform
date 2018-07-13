@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :items
-  resources :abilities
-  resources :characters
 	devise_for :users, controllers: {:omniauth_callbacks => "callbacks"}
 	resources :characters do
 		resources :abilities
