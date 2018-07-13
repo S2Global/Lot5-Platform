@@ -14,6 +14,7 @@ class AbilitiesController < ApplicationController
 
   # GET /abilities/new
   def new
+    @character  = Character.find(params[:character_id])
     @ability = Ability.new
   end
 
@@ -25,10 +26,11 @@ class AbilitiesController < ApplicationController
   # POST /abilities.json
   def create
     @ability = Ability.new(ability_params)
+    @character  = Character.find(params[:character_id])
 
     respond_to do |format|
       if @ability.save
-        format.html { redirect_to @ability, notice: 'Ability was successfully created.' }
+        format.html { redirect_to @character, notice: 'Ability was successfully created.' }
         format.json { render :show, status: :created, location: @ability }
       else
         format.html { render :new }
@@ -40,9 +42,10 @@ class AbilitiesController < ApplicationController
   # PATCH/PUT /abilities/1
   # PATCH/PUT /abilities/1.json
   def update
+    @character  = Character.find(params[:character_id])
     respond_to do |format|
       if @ability.update(ability_params)
-        format.html { redirect_to @ability, notice: 'Ability was successfully updated.' }
+        format.html { redirect_to @character, notice: 'Ability was successfully updated.' }
         format.json { render :show, status: :ok, location: @ability }
       else
         format.html { render :edit }
@@ -54,9 +57,10 @@ class AbilitiesController < ApplicationController
   # DELETE /abilities/1
   # DELETE /abilities/1.json
   def destroy
+    @character  = Character.find(params[:character_id])
     @ability.destroy
     respond_to do |format|
-      format.html { redirect_to abilities_url, notice: 'Ability was successfully destroyed.' }
+      format.html { redirect_to @character, notice: 'Ability was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

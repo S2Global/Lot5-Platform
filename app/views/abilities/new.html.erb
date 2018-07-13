@@ -1,7 +1,9 @@
 <div class="container">
 
-<%= render 'form', ability: @ability %>
+	<h1>New Ability</h1>
 
-<%= link_to 'Back', abilities_path %>
+	<%= render 'form', ability: @ability %>
+
+	<%= link_to 'Back', character_path(@character.id) %>
 
 </div>

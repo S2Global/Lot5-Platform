@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    @character  = Character.find(params[:character_id])
     @item = Item.new
   end
 
@@ -25,10 +26,11 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
+    @character  = Character.find(params[:character_id])
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to @character, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -40,9 +42,10 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    @character  = Character.find(params[:character_id])
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to @character, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -54,9 +57,10 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    @character  = Character.find(params[:character_id])
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to @character, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

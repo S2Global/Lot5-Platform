@@ -1,4 +1,4 @@
-<%= form_with(model: ability, local: true) do |form| %>
+<%= form_for([@character, @ability]) do |form| %>
   <% if ability.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ability.errors.count, "error") %> prohibited this ability from being saved:</h2>
@@ -16,10 +16,7 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :character_id %>
-    <%= form.text_field :character_id %>
-  </div>
+  <%= form.hidden_field :character_id, value: @character.id %>
 
   <div class="field">
     <%= form.label :range %>

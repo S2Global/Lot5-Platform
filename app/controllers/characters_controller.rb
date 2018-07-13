@@ -10,6 +10,9 @@ class CharactersController < ApplicationController
   # GET /characters/1
   # GET /characters/1.json
   def show
+    @character = Character.find(params[:id])
+    @abilities = Ability.where('character_id = ?',"#{@character.id}")
+    @items = Item.where('character_id = ?',"#{@character.id}")
   end
 
   # GET /characters/new

@@ -114,4 +114,50 @@
 
   </div>
 
+  <h2> Abilities </h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Range</th>
+        <th>Effect</th>
+        <th>Flair</th>
+        <th colspan="300"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @abilities.each do |ab| %>
+        <tr>
+          <td><%= ab.name %></td>
+          <td><%= ab.range %></td>
+          <td><%= ab.effect %></td>
+          <td><%= ab.flair %></td>
+          <td><%= link_to 'Delete', character_ability_path(@character.id, ab.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <td><%= link_to 'Create an Ability', new_character_ability_path(@character.id), class: "btn btn-default" %></td>
+
+<h2> Items </h2>
+
+  <div class="row">
+    <% @items.each do |item| %>
+    <div class="col-sm-3">
+        <div class="charchar-header">
+        <div class="charchar-header"><%= item.name %></div>
+          <div class="charchar-body">
+            <p class="charchar-text"><%= item.description %></p>
+            <p class="charchar-subtitle mb-2 text-muted">Durability: <%= item.uses %>/<%= item.durability %> - 
+          <%= link_to 'Delete', character_item_path(@character.id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>  
+          </p>
+          </div>
+        </div>
+    </div>
+  <% end %>
+  </div>
+  <br>
+  <td><%= link_to 'Create an Item', new_character_item_path(@character.id), class: "btn btn-default" %></td>
+
 </div>
