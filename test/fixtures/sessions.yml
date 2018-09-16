@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  world: one
+  ongoing: false
+  notes: MyString
+
+two:
+  world: two
+  ongoing: false
+  notes: MyString

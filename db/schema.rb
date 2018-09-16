@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_05_145824) do
+ActiveRecord::Schema.define(version: 2018_09_16_013605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,15 @@ ActiveRecord::Schema.define(version: 2018_07_05_145824) do
     t.index ["character_id"], name: "index_items_on_character_id"
   end
 
+  create_table "playerlists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "world_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_playerlists_on_user_id"
+    t.index ["world_id"], name: "index_playerlists_on_world_id"
+  end
+
   create_table "races", force: :cascade do |t|
     t.string "name"
     t.string "lore"
@@ -121,9 +130,21 @@ ActiveRecord::Schema.define(version: 2018_07_05_145824) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "worlds", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["user_id"], name: "index_worlds_on_user_id"
+  end
+
   add_foreign_key "abilities", "characters"
   add_foreign_key "characters", "archetypes"
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
   add_foreign_key "items", "characters"
+  add_foreign_key "playerlists", "users"
+  add_foreign_key "playerlists", "worlds"
+  add_foreign_key "worlds", "users"
 end

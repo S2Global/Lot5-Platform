@@ -30,4 +30,25 @@
 	</table>
 	<td><%= link_to 'Create a Character', new_character_path(@user.id) %></td>
 
+	<h2>Worlds:</h2>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th colspan="300"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @worlds.each do |world| %>
+				<tr>
+					<td><%= worlds.name %></td>
+					<td><%= worlds.description %></td>
+					<td><%= link_to 'Show', world %> | <%= link_to 'Delete', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
 </div>
