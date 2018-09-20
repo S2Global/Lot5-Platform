@@ -8,31 +8,50 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body>
 
-  <header>
-    <nav class="navbar navbar-default" >
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top menu">
       <div class="container-fluid">
-        <ul class="nav navbar-nav">
-          <li><a href="/" title="Home"> <%= image_tag 'logo_round.png', :style => 'height: 35px;' %> </a></li>
-          <li><a <%= link_to('Rules', "/") %></a></li>
-          <li><a <%= link_to('Characters', characters_path) %></a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
+        <a class="navbar-brand" href="/" title="Home"> <%= image_tag 'logo_round.png', :style => 'height: 35px;' %> </a>
+        <button class="navbar-toggler makeOrange" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon makeOrange"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <% if user_signed_in? %>
-            <li><%= link_to(current_user.name, '/users/' + current_user.id.to_s) %></li>
-            <li><a <%= link_to('Logout', destroy_user_session_path, method: :delete) %></a></li>
-          <% else %>
-            <li><%= link_to('Login', new_user_session_path) %></li>
-          <% end %>
-        </ul>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle makeOrange" href="#" data-toggle="dropdown">Rules</a>
+                <div class="dropdown-menu">
+                  <%= link_to 'Character Building', '#', class: 'dropdown-item' %>
+                  <%= link_to 'Mechanics', '#', class: 'dropdown-item' %>
+                 </div>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Characters', '#', class: 'nav-link makeOrange' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Worlds', worlds_path, class: 'nav-link makeOrange' %>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+              <% if true %>
+                <li class="nav-item">
+                  <%= link_to 'Game', worlds_path, class: 'nav-link makeOrange' %>
+                </li>
+                <% end %>
+              <li class="nav-item padded">
+                <%= link_to current_user.name, '/users/' + current_user.id.to_s, class: 'nav-link makeOrange' %>
+              </li>
+              <li class="nav-item padded">
+                <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-link makeOrange' %>
+              </li>
+            </ul>
+          <%end %>
+        </div>
       </div>
     </nav>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-  </header>
 
-  <body>
     <%= yield %>
     <div class="container">
       <% flash.each do |key, value| %>

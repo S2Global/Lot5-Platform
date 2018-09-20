@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'session/show'
 	resources :worlds
 	devise_for :users, controllers: {:omniauth_callbacks => "callbacks"}
 	resources :characters do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_013605) do
+ActiveRecord::Schema.define(version: 2018_09_16_020446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,24 @@ ActiveRecord::Schema.define(version: 2018_09_16_013605) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sessioncharacters", force: :cascade do |t|
+    t.bigint "character_id"
+    t.bigint "session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_sessioncharacters_on_character_id"
+    t.index ["session_id"], name: "index_sessioncharacters_on_session_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.bigint "world_id"
+    t.boolean "ongoing"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["world_id"], name: "index_sessions_on_world_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -130,6 +148,15 @@ ActiveRecord::Schema.define(version: 2018_09_16_013605) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "worldcharacters", force: :cascade do |t|
+    t.bigint "character_id"
+    t.bigint "world_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_worldcharacters_on_character_id"
+    t.index ["world_id"], name: "index_worldcharacters_on_world_id"
+  end
+
   create_table "worlds", force: :cascade do |t|
     t.bigint "user_id"
     t.string "description"
@@ -146,5 +173,10 @@ ActiveRecord::Schema.define(version: 2018_09_16_013605) do
   add_foreign_key "items", "characters"
   add_foreign_key "playerlists", "users"
   add_foreign_key "playerlists", "worlds"
+  add_foreign_key "sessioncharacters", "characters"
+  add_foreign_key "sessioncharacters", "sessions"
+  add_foreign_key "sessions", "worlds"
+  add_foreign_key "worldcharacters", "characters"
+  add_foreign_key "worldcharacters", "worlds"
   add_foreign_key "worlds", "users"
 end
