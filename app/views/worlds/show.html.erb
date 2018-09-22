@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>User:</strong>
-  <%= @world.user %>
-</p>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @world.description %>
-</p>
+	<p>
+	  <strong>User:</strong>
+	  <%= @world.user %>
+	</p>
 
-<%= link_to 'Edit', edit_world_path(@world) %> |
-<%= link_to 'Back', worlds_path %>
+	<p>
+	  <strong>Description:</strong>
+	  <%= @world.description %>
+	</p>
+
+	<%= link_to 'Edit', edit_world_path(@world) %> |
+	<%= link_to 'Back', worlds_path %>
+
+</div>

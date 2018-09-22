@@ -1,0 +1,20 @@
+<div class="container">
+	<h2>Session Characters</h2>
+	<table class="table table-dark">
+		<thead>
+			<tr>
+				<th>Session</th>
+				<th>Character</th>
+				<th colspan="300"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @SCs.each do |sc| %>
+				<tr>
+					<td><%= sc.session_id %></td>
+					<td><%= sc.character_id %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

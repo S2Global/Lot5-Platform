@@ -1,5 +1,7 @@
 {
   "name": "Lot5-Platform",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "hoek": "^5.0.4"
+  }
 }

@@ -1,0 +1,23 @@
+<div class="container">
+	<h2>Sessions</h2>
+	<table class="table table-light shadow">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>World</th>
+				<th>Notes</th>
+				<th colspan="300"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @sessions.each do |session| %>
+				<tr>
+					<td><%= session.id %></td>
+					<td><%= session.world_id %></td>
+					<td><%= session.notes %></td>
+					<td><%= link_to 'Show', session %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

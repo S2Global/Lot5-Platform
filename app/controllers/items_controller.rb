@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @character  = Character.find(params[:character_id])
+    @character = Character.find(params[:character_id])
     @item = Item.new
   end
 

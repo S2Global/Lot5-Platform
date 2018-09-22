@@ -1,0 +1,24 @@
+<div class="container">
+	<%= form_for @session do |form| %>
+	  
+	  <div class="field">
+	    <%= form.label :world_id %>
+	    <%= form.number_field :world_id %>
+	  </div>
+
+	  <div class="field">
+	    <%= check_box_tag(:ongoing) %>
+		<%= label_tag(:ongoing, "Ongoing") %>
+	  </div>
+	  
+	  <div class="field">
+	    <%= form.label :notes %>
+	    <%= form.text_area :notes %>
+	  </div>
+
+	  <div class="actions">
+	    <%= form.submit %>
+	  </div>
+
+	<% end %>
+</div>

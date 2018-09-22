@@ -1,5 +1,5 @@
 <div class="jumbotron">
-	<div class="container">
+	<div class="container" style="margin-top: 10px">
 		<%= image_tag 'logo.png' %>
 		<p>Rules, characters and game field.</p>
 		<br></br>
@@ -9,44 +9,33 @@
 	</div>
 </div>
 <br>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-8">
-	  <h2>Most Played</h2>
-	  <div class="row">
-	  	<% @characters.each do |character| %>
-			<div class="col-sm-4">
-			    <div class="card" style="width: 20vw;">
-				  <div class="card-header"><%= character.name %></div>
-			      <div class="card-body">
-			      	<p class="card-text"><%= character.race.name %></p>
-			      	<p class="card-text"><%= character.archetype.name %></p>
-			      </div>
-			      <div class="card-footer text-muted"><%= character.user.name %></div>
-			    </div>
+<div class="container" style="margin-top: 0px">
+	<h2>Most Played</h2>
+	<div class="card-columns">
+		<% @characters.each do |character| %>
+			<div class="card shadow">
+				<div class="card-body">
+					<h4 class="card-title"><%= character.name %></h4>
+					<p class="card-text"><%= character.race.name %></p>
+					<p class="card-text"><%= character.archetype.name %></p>
+					<%= link_to character.user.name, '/users/' + current_user.id.to_s %>
+				</div>
 			</div>
 		<% end %>
-	  </div>
-	  <br>
-	  <h2>Memorial Wall</h2>
-	  <div class="row">
-	  	<% @characters_deceased.each do |character| %>
-			<div class="col-sm-4">
-			    <div class="card-inverse" style="width: 30rem;">
-				  <div class="card-header"><%= character.name %></div>
-			      <div class="card-body">
-			      	<p class="card-text"><%= character.race.name %></p>
-			      	<p class="card-text"><%= character.archetype.name %></p>
-			      	<div class="card-footer text-muted"><%= character.user.name %></div>
-			      </div>
-			    </div>
+	</div>
+	<br>
+	<h2>Memorial Wall</h2>
+	<div class="card-columns">
+		<% @characters_deceased.each do |character| %>
+			<div class="card" style="width: 20vw;">
+				<img class="card-img-top" src="paper.jpg" alt="Character Image">
+				<div class="card-body">
+					<h4 class="card-title"><%= character.name %></h4>
+					<p class="card-text"><%= character.race.name %></p>
+					<p class="card-text"><%= character.archetype.name %></p>
+					<%= link_to character.user.name, '/users/' + current_user.id.to_s %>
+				</div>
 			</div>
 		<% end %>
-	  </div>
-    </div>
-    <div class="col-sm-2">
-    </div>
-  </div>
+	</div>
 </div>
