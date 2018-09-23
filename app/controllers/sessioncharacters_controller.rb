@@ -1,8 +1,5 @@
 class SessioncharactersController < ApplicationController
   
-  def index
-    @sessioncharacters = Sessioncharacter.all
-  end
   # GET /sessioncharacters/1
   # GET /sessioncharacters/1.json
   def show
@@ -22,7 +19,7 @@ class SessioncharactersController < ApplicationController
 
     respond_to do |format|
       if @sessioncharacter.save
-        format.html { redirect_to '', notice: 'Sessioncharacter was successfully created.' }
+        format.html { redirect_to @session, notice: 'Sessioncharacter was successfully created.' }
         format.json { render :show, status: :created, location: @sessioncharacter }
       else
         format.html { render :new }
@@ -36,7 +33,7 @@ class SessioncharactersController < ApplicationController
   def update
     respond_to do |format|
       if @sessioncharacter.update(sessioncharacter_params)
-        format.html { redirect_to @sessioncharacter, notice: 'Sessioncharacter was successfully updated.' }
+        format.html { redirect_to @session, notice: 'Sessioncharacter was successfully updated.' }
         format.json { render :show, status: :ok, location: @sessioncharacter }
       else
         format.html { render :edit }

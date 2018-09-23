@@ -18,7 +18,7 @@
 					<h4 class="card-title"><%= character.name %></h4>
 					<p class="card-text"><%= character.race.name %></p>
 					<p class="card-text"><%= character.archetype.name %></p>
-					<%= link_to character.user.name, '/users/' + current_user.id.to_s %>
+					<%= link_to character.user.name, '/users/' + character.user.id.to_s %>
 				</div>
 			</div>
 		<% end %>
@@ -33,7 +33,7 @@
 					<h4 class="card-title"><%= character.name %></h4>
 					<p class="card-text"><%= character.race.name %></p>
 					<p class="card-text"><%= character.archetype.name %></p>
-					<%= link_to character.user.name, '/users/' + current_user.id.to_s %>
+					<%= link_to character.user.name, '/users/' + character.user.id.to_s %>
 				</div>
 			</div>
 		<% end %>

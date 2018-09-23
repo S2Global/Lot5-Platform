@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
-	resources :worlds
+  get 'worldcharacters/new'
+	devise_for :users, controllers: {:omniauth_callbacks => "callbacks"}
+	resources :worlds do
+		resources :characters
+	end
 	resources :sessions do
 		resources :sessioncharacters
 	end
-	devise_for :users, controllers: {:omniauth_callbacks => "callbacks"}
 	resources :characters do
 		resources :abilities
 	end

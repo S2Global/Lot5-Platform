@@ -12,6 +12,11 @@
       </p>
 
       <p>
+        <strong>World:</strong>
+        <%= @character.world.name %>
+      </p>
+
+      <p>
         <strong>Arch:</strong>
         <%= @character.archetype.name %>
       </p>
@@ -116,7 +121,7 @@
 
   <h2> Abilities </h2>
 
-  <table class="table">
+  <table class="table table-light shadow">
     <thead>
       <tr>
         <th>Name</th>
@@ -138,25 +143,25 @@
       <% end %>
     </tbody>
   </table>
-  <td><%= link_to 'Create an Ability', new_character_ability_path(@character.id), class: "btn btn-default" %></td>
 
-<h2> Items </h2>
-
-  <div class="row">
-    <% @items.each do |item| %>
-    <div class="col-sm-3">
-        <div class="charchar-header">
-        <div class="charchar-header"><%= item.name %></div>
-          <div class="charchar-body">
-            <p class="charchar-text"><%= item.description %></p>
-            <p class="charchar-subtitle mb-2 text-muted">Durability: <%= item.uses %>/<%= item.durability %> - 
-          <%= link_to 'Delete', character_item_path(@character.id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>  
-          </p>
-          </div>
-        </div>
-    </div>
+  <% if @character.user == current_user %>
+    <%= link_to 'Create an Ability', new_character_ability_path(@character.id), class: "btn btn-light shadow" %>
   <% end %>
+
+  <br><br>
+  <h2> Items </h2>
+  <% @items.each do |item| %>
+  <div class="card-columns">
+    <div class="card shadow">
+      <div class="card-body">
+        <h4 class="card-title"><%= item.name %></h4>
+        <p class="card-text"><%= item.description %></p>
+        <p class="card-subtitle mb-2 text-muted">Durability: <%= item.uses %>/<%= item.durability %></p>
+      </div>
+    </div>
+
   </div>
+  <% end %>
   <br>
 
 </div>

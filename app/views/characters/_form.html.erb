@@ -19,8 +19,13 @@
   <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div class="field">
+      <%= form.label :world_id %><br/>
+      <%= form.collection_select :world_id,  World.order('name ASC'), :id, :name, include_blank: false %>
+  </div>
+
+  <div class="field">
     <%= form.label :exp %>
-    <%= form.number_field :exp %>
+    <%= form.number_field :exp, :value => 0 %>
   </div>
 
   <div class="field">

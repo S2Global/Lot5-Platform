@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_020446) do
+ActiveRecord::Schema.define(version: 2018_09_23_002828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,9 +70,11 @@ ActiveRecord::Schema.define(version: 2018_09_16_020446) do
     t.boolean "alive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "world_id"
     t.index ["archetype_id"], name: "index_characters_on_archetype_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
+    t.index ["world_id"], name: "index_characters_on_world_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -144,6 +146,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_020446) do
     t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -170,6 +173,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_020446) do
   add_foreign_key "characters", "archetypes"
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
+  add_foreign_key "characters", "worlds"
   add_foreign_key "items", "characters"
   add_foreign_key "playerlists", "users"
   add_foreign_key "playerlists", "worlds"

@@ -3,8 +3,8 @@
 	<table class="table table-light shadow">
 		<thead>
 			<tr>
-				<th>ID</th>
 				<th>World</th>
+				<th>ID</th>
 				<th>Notes</th>
 				<th colspan="300"></th>
 			</tr>
@@ -12,8 +12,8 @@
 		<tbody>
 			<% @sessions.each do |session| %>
 				<tr>
+					<td><%= session.world.name %></td>
 					<td><%= session.id %></td>
-					<td><%= session.world_id %></td>
 					<td><%= session.notes %></td>
 					<td><%= link_to 'Show', session %></td>
 				</tr>

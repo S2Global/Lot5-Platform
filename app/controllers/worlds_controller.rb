@@ -10,6 +10,8 @@ class WorldsController < ApplicationController
   # GET /worlds/1
   # GET /worlds/1.json
   def show
+    @world = World.find(params[:id])
+    @world_characters = Character.where('world_id = ?',"#{@world.id}")
   end
 
   # GET /worlds/new
@@ -69,6 +71,6 @@ class WorldsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def world_params
-      params.require(:world).permit(:user_id, :description)
+      params.require(:world).permit(:name, :user_id, :description)
     end
 end
