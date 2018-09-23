@@ -7,7 +7,7 @@
 
     <div class="field">
       <%= f.label :name %><br />
-      <%= f.email_field :name, autofocus: true, autocomplete: "name" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
     </div>
 
     <div class="field">
@@ -33,6 +33,6 @@
     </div>
   <% end %>
 
-  <%= render "users/shared/links" %>
+  <%= render "devise/shared/links" %>
 
 </div>
