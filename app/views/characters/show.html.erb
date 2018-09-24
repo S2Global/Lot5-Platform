@@ -100,17 +100,19 @@
   <br><br>
   <h2> Items </h2>
   <% @items.each do |item| %>
-  <div class="card-columns">
-    <div class="card shadow">
-      <div class="card-body">
-        <h4 class="card-title"><%= item.name %></h4>
-        <p class="card-text"><%= item.description %></p>
-        <p class="card-subtitle mb-2 text-muted">Durability: <%= item.uses %>/<%= item.durability %></p>
+    <div class="card-columns">
+      <div class="card shadow">
+        <div class="card-body">
+          <h4 class="card-title"><%= item.name %></h4>
+          <p class="card-text"><%= item.description %></p>
+          <p class="card-subtitle mb-2 text-muted">Durability: <%= item.uses %>/<%= item.durability %></p>
+        </div>
       </div>
     </div>
-
-  </div>
   <% end %>
   <br>
 
+  <% if @character.user == current_user %>
+    <%= link_to 'Edit', edit_character_path, class: "btn btn-light shadow" %> 
+  <% end %>
 </div>

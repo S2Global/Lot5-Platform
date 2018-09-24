@@ -29,6 +29,13 @@ class CharactersController < ApplicationController
     @character = Character.new
   end
 
+  # GET /characters/1/edit
+  def edit
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
+  end
+
   # POST /characters
   # POST /characters.json
   def create
