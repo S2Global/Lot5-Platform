@@ -4,12 +4,18 @@ class CharactersController < ApplicationController
   # GET /characters
   # GET /characters.json
   def index
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @characters = Character.all
   end
 
   # GET /characters/1
   # GET /characters/1.json
   def show
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @character = Character.find(params[:id])
     @abilities = Ability.where('character_id = ?',"#{@character.id}")
     @items = Item.where('character_id = ?',"#{@character.id}")
@@ -17,12 +23,18 @@ class CharactersController < ApplicationController
 
   # GET /characters/new
   def new
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @character = Character.new
   end
 
   # POST /characters
   # POST /characters.json
   def create
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @character = Character.new(character_params)
     if @character.exp>=0
       @character.level=1
@@ -82,6 +94,9 @@ class CharactersController < ApplicationController
   # PATCH/PUT /characters/1
   # PATCH/PUT /characters/1.json
   def update
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     if @character.exp>=0
       @character.level=1
     end
@@ -135,6 +150,9 @@ class CharactersController < ApplicationController
   # DELETE /characters/1
   # DELETE /characters/1.json
   def destroy
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @character.destroy
     respond_to do |format|
       format.html { redirect_to characters_url, notice: 'Character was successfully destroyed.' }

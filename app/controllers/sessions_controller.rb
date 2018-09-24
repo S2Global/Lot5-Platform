@@ -1,21 +1,33 @@
 class SessionsController < ApplicationController
   
   def index
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @sessions = Session.all
   end
   # GET /sessions/1
   # GET /sessions/1.json
   def show
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   	@session = Session.find(params[:id])
   	@session_characters = Sessioncharacter.where('session_id = ?',"#{@session.id}")
   end
 
   # GET /sessions/new
   def new
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @session = Session.new
   end
 
   def create
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @session = Session.new(session_params)
 
     respond_to do |format|
@@ -32,6 +44,9 @@ class SessionsController < ApplicationController
   # PATCH/PUT /sessions/1
   # PATCH/PUT /sessions/1.json
   def update
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     respond_to do |format|
       if @session.update(session_params)
         format.html { redirect_to @session, notice: 'Session was successfully updated.' }
@@ -46,6 +61,9 @@ class SessionsController < ApplicationController
   # DELETE /sessions/1
   # DELETE /sessions/1.json
   def destroy
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @session.destroy
     respond_to do |format|
       format.html { redirect_to sessions_url, notice: 'Session was successfully destroyed.' }

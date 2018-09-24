@@ -16,10 +16,14 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-      <%= form.collection_select :user_id,  User.order('name ASC'), :id, :name, include_blank: false %>
-  </div>
+  <% if current_user.is_admin %>
+    <div class="field">
+      <%= form.label :user_id %>
+        <%= form.collection_select :user_id,  User.order('name ASC'), :id, :name, include_blank: false %>
+    </div>
+    <% else %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+  <% end %>
 
   <div class="field">
     <%= form.label :description %>

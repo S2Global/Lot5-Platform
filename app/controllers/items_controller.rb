@@ -4,27 +4,42 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @items = Item.all
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /items/new
   def new
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @character = Character.find(params[:character_id])
     @item = Item.new
   end
 
   # GET /items/1/edit
   def edit
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
   # POST /items
   # POST /items.json
   def create
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @item = Item.new(item_params)
     @character  = Character.find(params[:character_id])
 
@@ -42,6 +57,9 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @character  = Character.find(params[:character_id])
     respond_to do |format|
       if @item.update(item_params)
@@ -57,6 +75,9 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @character  = Character.find(params[:character_id])
     @item.destroy
     respond_to do |format|

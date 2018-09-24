@@ -4,27 +4,42 @@ class AbilitiesController < ApplicationController
   # GET /abilities
   # GET /abilities.json
   def index
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @abilities = Ability.all
   end
 
   # GET /abilities/1
   # GET /abilities/1.json
   def show
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /abilities/new
   def new
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @character  = Character.find(params[:character_id])
     @ability = Ability.new
   end
 
   # GET /abilities/1/edit
   def edit
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
   # POST /abilities
   # POST /abilities.json
   def create
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @ability = Ability.new(ability_params)
     @character  = Character.find(params[:character_id])
 
@@ -42,6 +57,9 @@ class AbilitiesController < ApplicationController
   # PATCH/PUT /abilities/1
   # PATCH/PUT /abilities/1.json
   def update
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @character  = Character.find(params[:character_id])
     respond_to do |format|
       if @ability.update(ability_params)
@@ -57,6 +75,9 @@ class AbilitiesController < ApplicationController
   # DELETE /abilities/1
   # DELETE /abilities/1.json
   def destroy
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @character  = Character.find(params[:character_id])
     @ability.destroy
     respond_to do |format|
