@@ -6,114 +6,61 @@
 
     <div class="col-sm-6">
 
-      <p>
-        <strong>User:</strong>
-        <%= @character.user.name %>
-      </p>
+      <p><strong>User:</strong><%= @character.user.name %></p>
 
-      <p>
-        <strong>World:</strong>
-        <%= @character.world.name %>
-      </p>
+      <p><strong>World:</strong><%= @character.world.name %></p>
 
-      <p>
-        <strong>Arch:</strong>
-        <%= @character.archetype.name %>
-      </p>
+      <p><strong>Arch:</strong><%= @character.archetype.name %></p>
 
-      <p>
-        <strong>Race:</strong>
-        <%= @character.race.name %>
-      </p>
+      <p><strong>Race:</strong><%= @character.race.name %></p>
 
-      <p>
-        <strong>Class:</strong>
-        <%= @character.role %>
-      </p>
+      <p><strong>Class:</strong><%= @character.role %></p>
 
-      <p>
-        <strong>Str:</strong>
-        <%= @character.strength %>
-      </p>
+      <p><strong>Hp:</strong><%= @character.hp %></p>
 
-      <p>
-        <strong>Vit:</strong>
-        <%= @character.vitality %>
-      </p>
+      <% if @character.strength != 0 %>
+        <p><strong>Str:</strong><%= @character.strength %></p>
+      <% end %>
 
-      <p>
-        <strong>Int:</strong>
-        <%= @character.intelligence %>
-      </p>
+      <% if @character.vitality != 0 %>
+        <p><strong>Vit:</strong><%= @character.vitality %></p>
+      <% end %>
 
-      <p>
-        <strong>Dex:</strong>
-        <%= @character.dexterity %>
-      </p>
+      <% if @character.intelligence != 0 %>
+        <p><strong>Int:</strong><%= @character.intelligence %></p>
+      <% end %>
 
-      <p>
-        <strong>Agi:</strong>
-        <%= @character.agility %>
-      </p>
+      <% if @character.dexterity != 0 %>
+        <p><strong>Dex:</strong><%= @character.dexterity %></p>
+      <% end %>
 
-      <p>
-        <strong>Wis:</strong>
-        <%= @character.wisdom %>
-      </p>
+      <% if @character.agility != 0 %>
+        <p><strong>Agi:</strong><%= @character.agility %></p>
+      <% end %>
 
-      <p>
-        <strong>Cha:</strong>
-        <%= @character.charisma %>
-      </p>
+      <% if @character.wisdom != 0 %>
+        <p><strong>Wis:</strong><%= @character.wisdom %></p>
+      <% end %>
+
+      <% if @character.charisma != 0 %>
+        <p><strong>Cha:</strong><%= @character.charisma %></p>
+      <% end %>
 
     </div>
 
     <div class="col-sm-6">
 
-      <p>
-        <strong>Level:</strong>
-        <%= @character.level %>
-      </p>
+      <p><strong>Level:</strong><%= @character.level %></p>
 
-      <p>
-        <strong>Exp:</strong>
-        <%= @character.exp %>
-      </p>
+      <p><strong>Exp:</strong><%= @character.exp %></p>
 
-      <p>
-        <strong>Hp:</strong>
-        <%= @character.hp %>
-      </p>
+      <p><strong>Cp:</strong><%= @character.cp %></p>
 
-      <p>
-        <strong>Cp:</strong>
-        <%= @character.cp %>
-      </p>
+      <p><strong>Sp:</strong><%= @character.sp %></p>
 
-      <p>
-        <strong>Sp:</strong>
-        <%= @character.sp %>
-      </p>
+      <p><strong>Gp:</strong><%= @character.gp %></p>
 
-      <p>
-        <strong>Gp:</strong>
-        <%= @character.gp %>
-      </p>
-
-      <p>
-        <strong>Pp:</strong>
-        <%= @character.pp %>
-      </p>
-
-      <p>
-        <strong>Locx:</strong>
-        <%= @character.locX %>
-      </p>
-
-      <p>
-        <strong>Locy:</strong>
-        <%= @character.locY %>
-      </p>
+      <p><strong>Pp:</strong><%= @character.pp %></p>
   
     </div>
 
@@ -138,7 +85,9 @@
           <td><%= ab.range %></td>
           <td><%= ab.effect %></td>
           <td><%= ab.flair %></td>
-          <td><%= link_to 'Delete', character_ability_path(@character.id, ab.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if @character.user == current_user %>
+            <td><%= link_to 'Delete', character_ability_path(@character.id, ab.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
