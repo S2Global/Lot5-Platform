@@ -66,6 +66,11 @@
 
   </div>
 
+  <% if @character.user == current_user %>
+    <%= link_to 'Edit', edit_character_path, class: "btn btn-light shadow" %> 
+  <% end %>
+  <br><br>
+
   <h2> Abilities </h2>
 
   <table class="table table-light shadow">
@@ -111,8 +116,4 @@
     </div>
   <% end %>
   <br>
-
-  <% if @character.user == current_user %>
-    <%= link_to 'Edit', edit_character_path, class: "btn btn-light shadow" %> 
-  <% end %>
 </div>
