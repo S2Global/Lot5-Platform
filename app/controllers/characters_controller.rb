@@ -73,15 +73,6 @@ class CharactersController < ApplicationController
     if @character.exp>=100000
       @character.level=10
     end
-    if @character.archetype_id==1
-      @character.hp=6*@character.level
-    end
-    if @character.archetype_id==2
-      @character.hp=7*@character.level
-    end
-    if @character.archetype_id==3
-      @character.hp=8*@character.level
-    end
     if (@character.strength + @character.vitality + @character.intelligence + @character.dexterity + @character.agility + @character.wisdom + @character.charisma) == @character.level
       respond_to do |format|
         if @character.save
@@ -133,15 +124,6 @@ class CharactersController < ApplicationController
     end
     if @character.exp>=100000
       @character.level=10
-    end
-    if @character.archetype_id==1
-      @character.hp=6*@character.level
-    end
-    if @character.archetype_id==2
-      @character.hp=7*@character.level
-    end
-    if @character.archetype_id==3
-      @character.hp=8*@character.level
     end
     respond_to do |format|
       if @character.update(character_params)
