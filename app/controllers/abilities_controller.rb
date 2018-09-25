@@ -94,6 +94,6 @@ class AbilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ability_params
-      params.require(:ability).permit(:name, :character_id, :range, :effect, :flair)
+      params.require(:ability).permit(:name, :phase, :character_id, :range, :effect, :flair)
     end
 end

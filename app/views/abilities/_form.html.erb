@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+      <%= form.label :phase %>
+      <%= form.select( :phase, { "Passive" => 1, "Active" => 2, "Free" => 3, "Reaction" => 4}) %>
+    </div>
+
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>

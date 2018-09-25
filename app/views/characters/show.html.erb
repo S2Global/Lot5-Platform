@@ -76,6 +76,7 @@
   <table class="table table-light shadow">
     <thead>
       <tr>
+        <th>Phase</th>
         <th>Name</th>
         <th>Range</th>
         <th>Effect</th>
@@ -84,8 +85,10 @@
       </tr>
     </thead>
     <tbody>
+      <% phase = ["Passive", "Active", "Free", "Reaction"] %>
       <% @abilities.each do |ab| %>
         <tr>
+          <td><%= phase[ab.phase] %></td>
           <td><%= ab.name %></td>
           <td><%= ab.range %></td>
           <td><%= ab.effect %></td>
