@@ -36,9 +36,9 @@
 		</tbody>
 	</table>
 	<%= link_to "Add Character", new_character_path(@world.id), class: "btn btn-light shadow" %>	
+	<br><br>
 
 	<% if @world.user == current_user %>
-		<br><br>
 		<%= link_to 'Edit', edit_world_path(@world), class: "btn btn-light shadow" %> 
 	<% end %>
 	<%= link_to 'Back', worlds_path, class: "btn btn-light shadow" %>
