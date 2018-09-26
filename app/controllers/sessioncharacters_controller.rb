@@ -10,16 +10,18 @@ class SessioncharactersController < ApplicationController
   # GET /sessioncharacters/new
   def new
   	@session = Session.find(params[:session_id])
+    @world = World.find(@session.world_id)
     @sessioncharacter = Sessioncharacter.new
   end
 
   def create
     @sessioncharacter = Sessioncharacter.new(sessioncharacter_params)
   	@session = Session.find(params[:session_id])
+    @world = World.find(@session.world_id)
 
     respond_to do |format|
       if @sessioncharacter.save
-        format.html { redirect_to @session, notice: 'Sessioncharacter was successfully created.' }
+        format.html { redirect_to '/worlds/' + @world.id.to_s + '/sessions/' + @session.id.to_s, notice: 'Sessioncharacter was successfully created.' }
         format.json { render :show, status: :created, location: @sessioncharacter }
       else
         format.html { render :new }

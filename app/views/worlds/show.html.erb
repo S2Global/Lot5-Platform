@@ -24,18 +24,40 @@
 		<tbody>
 			<% @world_characters.each do |character| %>
 				<tr>
-					<td><%= character.name %></td>
+          			<td><%= link_to character.name, character %></td>
 					<td><%= character.level %></td>
 					<td><%= character.race.name %></td>
 					<td><%= character.archetype.name %></td>
 					<td><%= character.role %></td>
 					<td><%= character.user.name %></td>
-					<td><%= link_to 'Show', character %></td>
 				</tr>
 			<% end %>
 		</tbody>
 	</table>
 	<%= link_to "Add Character", new_character_path(@world.id), class: "btn btn-light shadow" %>	
+	<br><br>
+
+	<h2>Sessions</h2>
+	<table class="table table-light shadow">
+		<thead>
+			<tr>
+				<th class="col-2">Date</th>
+				<th class="col-2">Ongong</th>
+				<th>Notes</th>
+				<th colspan="300"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @world_sessions.each do |session| %>
+				<tr>
+          			<td><%= link_to session.created_at.strftime("%b %d, %Y"), session.world_id.to_s + '/sessions/' + session.id.to_s %></td>
+					<td><%= session.ongoing %></td>
+					<td><%= session.notes %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%= link_to 'New Session', new_world_session_path(@world), class: "btn btn-light shadow" %> 
 	<br><br>
 
 	<% if @world.user == current_user %>

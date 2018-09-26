@@ -1,16 +1,16 @@
 <div class="container">
 
-	<%= form_for ([@session, @sessioncharacter]) do |form| %>
+	<%= form_for ([@world, @session, @sessioncharacter]) do |form| %>
 
 		<%= form.hidden_field :session_id, value: params[:session_id] %>
 
 		<div class="field">
 			<%= form.label :character_id %><br/>
-			<%= form.collection_select :character_id,  Character.order('name ASC').where('id = ?',"#{@session.world}"), :id, :name, include_blank: false %>
+			<%= form.collection_select :character_id,  Character.order('name ASC').where('world_id = ?',"#{@session.world_id}"), :id, :name, include_blank: false %>
 		</div>
 
 		<div class="actions">
-		    <%= form.submit %>
+		    <%= form.submit "Add" %>
 		</div>
 
 	<% end %>

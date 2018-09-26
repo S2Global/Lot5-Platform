@@ -25,7 +25,7 @@
 			<% end %>
 		</tbody>
 	</table>
-	<%= link_to "Add Character", new_session_sessioncharacter_path(@session.id), class: "btn btn-light shadow" %>
+	<%= link_to "Add Character", new_world_session_sessioncharacter_path(@session.world, @session.id), class: "btn btn-light shadow" %>
 	<br>
 	<br>
 	<button class="btn btn-primary shadow">Start</button>

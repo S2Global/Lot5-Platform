@@ -67,7 +67,8 @@
   </div>
 
   <% if @character.user == current_user %>
-    <%= link_to 'Edit', edit_character_path, class: "btn btn-light shadow" %> 
+    <%= link_to 'Edit', edit_character_path, class: "btn btn-light shadow" %>  
+    <%= link_to 'Destroy', @character, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light shadow" %>
   <% end %>
   <br><br>
 

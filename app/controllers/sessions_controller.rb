@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
     unless user_signed_in?
       redirect_to new_user_session_path
     end
+    @world = World.find(params[:world_id])
     @session = Session.new
   end
 
@@ -29,10 +30,11 @@ class SessionsController < ApplicationController
       redirect_to new_user_session_path
     end
     @session = Session.new(session_params)
+    @world = World.find(params[:world_id])
 
     respond_to do |format|
       if @session.save
-        format.html { redirect_to @session, notice: 'Session was successfully created.' }
+        format.html { redirect_to '/worlds/' + @world.id.to_s + '/sessions/' + @session.id.to_s, notice: 'Session was successfully created.' }
         format.json { render :show, status: :created, location: @session }
       else
         format.html { render :new }

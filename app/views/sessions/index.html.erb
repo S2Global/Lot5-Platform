@@ -15,7 +15,7 @@
 					<td><%= session.world.name %></td>
 					<td><%= session.id %></td>
 					<td><%= session.notes %></td>
-					<td><%= link_to 'Show', session %></td>
+					<td><%= link_to 'Show', session.world_id.to_s + '/sessions/' + session.id.to_s %></td>
 				</tr>
 			<% end %>
 		</tbody>

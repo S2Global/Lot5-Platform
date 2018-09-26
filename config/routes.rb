@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 	resources :worlds do
 		resources :characters
 	end
-	resources :sessions do
-		resources :sessioncharacters
+	resources :worlds do
+		resources :sessions do
+			resources :sessioncharacters
+		end
 	end
 	resources :characters do
 		resources :abilities

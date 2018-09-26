@@ -17,7 +17,8 @@ class WorldsController < ApplicationController
       redirect_to new_user_session_path
     end
     @world = World.find(params[:id])
-    @world_characters = Character.where('world_id = ?',"#{@world.id}")
+    @world_characters = Character.where('world_id = ?', params[:id])
+    @world_sessions = Session.where('world_id = ?', params[:id])
   end
 
   # GET /worlds/new

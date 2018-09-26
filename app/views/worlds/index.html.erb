@@ -17,10 +17,9 @@
     <tbody>
       <% @worlds.each do |world| %>
         <tr>
-          <td><%= world.name %></td>
+          <td><%= link_to world.name, world %></td>
           <td><%= world.user.name %></td>
           <td><%= world.description %></td>
-          <td><%= link_to 'Show', world %></td>
         </tr>
       <% end %>
     </tbody>

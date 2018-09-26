@@ -1,15 +1,10 @@
 <div class="container">
-	<%= form_for @session do |form| %>
+	<%= form_for([@world, @session]) do |form| %>
 	  
-	  <div class="field">
-	    <%= form.label :world_id %>
-	    <%= form.number_field :world_id %>
-	  </div>
+	  <%= form.hidden_field :world_id, value: @world.id %>
 
-	  <div class="field">
-	    <%= check_box_tag(:ongoing) %>
-		<%= label_tag(:ongoing, "Ongoing") %>
-	  </div>
+	  
+	  <%= form.hidden_field :ongoing, value: false %>
 	  
 	  <div class="field">
 	    <%= form.label :notes %>
