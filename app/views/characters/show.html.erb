@@ -94,7 +94,7 @@
           <td><%= ab.effect %></td>
           <td><%= ab.flair %></td>
           <% if @character.user == current_user %>
-            <td><%= link_to 'Delete', character_ability_path(@character.id, ab.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_character_ability_path(@character.id, ab.id) %> | <%= link_to 'Delete', character_ability_path(@character.id, ab.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>

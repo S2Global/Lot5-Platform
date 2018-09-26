@@ -29,6 +29,7 @@ class AbilitiesController < ApplicationController
 
   # GET /abilities/1/edit
   def edit
+    @character  = Character.find(params[:character_id])
     unless user_signed_in?
       redirect_to new_user_session_path
     end

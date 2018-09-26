@@ -25,7 +25,7 @@
 
   <div class="field">
     <%= form.label :exp %>
-    <%= form.number_field :exp, :value => 0 %>
+    <%= form.number_field :exp, :value => character.exp %>
   </div>
 
   <div class="field">
@@ -45,42 +45,42 @@
 
   <div class="field">
     <%= form.label :HP %>
-    <%= form.number_field :hp, :value => 0 %>
+    <%= form.number_field :hp, :value => character.hp %>
   </div>
 
   <div class="field">
     <%= form.label :strength %>
-    <%= form.number_field :strength, :value => 0 %>
+    <%= form.number_field :strength, :value => character.strength %>
   </div>
 
   <div class="field">
     <%= form.label :vitality %>
-    <%= form.number_field :vitality, :value => 0  %>
+    <%= form.number_field :vitality, :value => character.vitality  %>
   </div>
 
   <div class="field">
     <%= form.label :intelligence %>
-    <%= form.number_field :intelligence, :value => 0  %>
+    <%= form.number_field :intelligence, :value => character.intelligence  %>
   </div>
 
   <div class="field">
     <%= form.label :dexterity %>
-    <%= form.number_field :dexterity, :value => 0  %>
+    <%= form.number_field :dexterity, :value => character.dexterity  %>
   </div>
 
   <div class="field">
     <%= form.label :agility %>
-    <%= form.number_field :agility, :value => 0  %>
+    <%= form.number_field :agility, :value => character.agility  %>
   </div>
 
   <div class="field">
     <%= form.label :wisdom %>
-    <%= form.number_field :wisdom, :value => 0  %>
+    <%= form.number_field :wisdom, :value => character.wisdom  %>
   </div>
 
   <div class="field">
     <%= form.label :charisma %>
-    <%= form.number_field :charisma, :value => 0  %>
+    <%= form.number_field :charisma, :value => character.charisma  %>
   </div>
 
   <%= form.hidden_field :gp, value: 5 %>
