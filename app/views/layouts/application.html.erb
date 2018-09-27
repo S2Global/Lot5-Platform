@@ -36,7 +36,7 @@
           <% if user_signed_in? %>
             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
               <li class="nav-item">
-                <%= link_to 'Game', '/sessions/', class: 'nav-link makeOrange' %>
+                <%= link_to 'Game', '#', class: 'nav-link makeOrange' %>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle makeOrange" href="#" data-toggle="dropdown"><%= current_user.name %></a>
