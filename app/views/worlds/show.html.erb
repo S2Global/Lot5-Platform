@@ -41,18 +41,20 @@
 	<table class="table table-light shadow">
 		<thead>
 			<tr>
-				<th class="col-2">Date</th>
-				<th class="col-2">Ongong</th>
-				<th>Notes</th>
+				<th>Name</th>
+				<th>Started</th>
+				<th>Ended</th>
+				<th>Context</th>
 				<th colspan="300"></th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @world_sessions.each do |session| %>
 				<tr>
-          			<td><%= link_to session.created_at.strftime("%b %d, %Y"), session.world_id.to_s + '/sessions/' + session.id.to_s %></td>
+          			<td><%= link_to session.name, session.world_id.to_s + '/sessions/' + session.id.to_s %></td>
 					<td><%= session.ongoing %></td>
-					<td><%= session.notes %></td>
+					<td><%= session.ended %></td>
+					<td><%= session.context %></td>
 				</tr>
 			<% end %>
 		</tbody>

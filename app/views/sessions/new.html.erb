@@ -3,17 +3,26 @@
 	  
 	  <%= form.hidden_field :world_id, value: @world.id %>
 
+	  <%= form.hidden_field :ended, value: false %>
 	  
 	  <%= form.hidden_field :ongoing, value: false %>
 	  
+	  <%= form.label :name %>
 	  <div class="field">
-	    <%= form.label :notes %>
-	    <%= form.text_area :notes %>
+	    <%= form.text_field :name %>
+	  </div>
+
+	  <%= form.label :context %>
+	  <div class="field">
+	    <%= form.text_area :context %>
 	  </div>
 
 	  <div class="actions">
-	    <%= form.submit %>
+	    <%= form.submit class:"btn btn-light" %>
 	  </div>
 
 	<% end %>
+
+	<%= link_to 'Back', world_path(@world.id), class:"btn btn-light"%>
+
 </div>

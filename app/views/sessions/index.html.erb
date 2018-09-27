@@ -12,10 +12,9 @@
 		<tbody>
 			<% @sessions.each do |session| %>
 				<tr>
-					<td><%= session.world.name %></td>
+					<td><%= link_to session.world.name, '/worlds/' + session.world_id.to_s + '/sessions/' + session.id.to_s %></td>
 					<td><%= session.id %></td>
 					<td><%= session.notes %></td>
-					<td><%= link_to 'Show', session.world_id.to_s + '/sessions/' + session.id.to_s %></td>
 				</tr>
 			<% end %>
 		</tbody>

@@ -49,9 +49,11 @@ class SessionsController < ApplicationController
     unless user_signed_in?
       redirect_to new_user_session_path
     end
+    @session = Session.find(params[:id])
+    @world = World.find(params[:world_id])
     respond_to do |format|
       if @session.update(session_params)
-        format.html { redirect_to @session, notice: 'Session was successfully updated.' }
+        format.html { redirect_to world_session_path, notice: 'Session was successfully updated.' }
         format.json { render :show, status: :ok, location: @session }
       else
         format.html { render :edit }
@@ -79,6 +81,6 @@ private
       @session = Session.find(params[:id])
     end
   def session_params
-      params.require(:session).permit(:world_id, :ongoing, :notes)
+      params.require(:session).permit(:name, :ended, :context, :world_id, :ongoing, :notes)
     end
 end

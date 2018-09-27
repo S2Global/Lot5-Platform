@@ -1,5 +1,20 @@
 <div class="container">
-	<h1>Session</h1>
+	<h1><%= @session.name %></h1>
+
+	<h2>Context</h2>
+	<p><%= @session.context %></p>
+
+	<p><strong>Started: </strong><%= @session.ongoing %></p>
+
+	<p><strong>Ended: </strong><%= @session.ended %></p>
+
+	<h2>End Notes</h2>
+	<p><%= @session.notes %></p>
+
+	<% if @session.world.user == current_user %>
+		<%= link_to 'Add Notes', edit_world_session_path(@session.world), class: "btn btn-light shadow" %> 
+	<% end %>
+	<br><br>
 
 	<h2>Characters</h2>
 	<table class="table table-light shadow">
@@ -25,8 +40,21 @@
 			<% end %>
 		</tbody>
 	</table>
-	<%= link_to "Add Character", new_world_session_sessioncharacter_path(@session.world, @session.id), class: "btn btn-light shadow" %>
-	<br>
-	<br>
-	<button class="btn btn-primary shadow">Start</button>
+
+
+	<% if @session.world.user == current_user %>
+		<% if !@session.ongoing && !@session.ended %>
+			<%= link_to "Add Character", new_world_session_sessioncharacter_path(@session.world, @session.id), class: "btn btn-light shadow" %>
+			<br>
+			<br>
+			<%= link_to("Start", world_session_path(@session.world, @session.id, "session[ongoing]" => true), :method => :put, class: "btn btn-success shadow" )%> 
+		<% end %>
+		<% if @session.ongoing && !@session.ended %>
+			<%= link_to "Add Character", new_world_session_sessioncharacter_path(@session.world, @session.id), class: "btn btn-light shadow" %>
+			<br>
+			<br>
+			<%= link_to("End", world_session_path(@session.world, @session.id, "session[ended]" => true), :method => :put, class: "btn btn-danger shadow" )%>
+		<% end %>
+		
+	<% end %>
 </div>
