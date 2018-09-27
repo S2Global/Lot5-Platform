@@ -31,7 +31,7 @@
 		<tbody>
 			<% @session_characters.each do |character| %>
 				<tr>
-					<td><%= character.character.name %></td>
+					<td><%= link_to character.character.name, character.character %></td>
 					<td><%= character.character.level %></td>
 					<td><%= character.character.race.name %></td>
 					<td><%= character.character.archetype.name %></td>

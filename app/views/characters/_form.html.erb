@@ -25,7 +25,11 @@
 
   <div class="field">
     <%= form.label :exp %>
-    <%= form.number_field :exp, :value => character.exp %>
+    <% if character.exp.nil? %>
+      <%= form.number_field :exp, :value => 0 %>
+    <% else %>
+      <%= form.number_field :exp, :value => character.exp %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -45,42 +49,75 @@
 
   <div class="field">
     <%= form.label :HP %>
-    <%= form.number_field :hp, :value => character.hp %>
+    <% if character.hp.nil? %>
+      <%= form.number_field :hp, :value => 0 %>
+    <% else %>
+      <%= form.number_field :hp, :value => character.hp %>
+    <% end %>
   </div>
 
   <div class="field">
     <%= form.label :strength %>
-    <%= form.number_field :strength, :value => character.strength %>
+    <% if character.strength.nil? %>
+      <%= form.number_field :strength, :value => 0 %>
+    <% else %>
+      <%= form.number_field :strength, :value => character.strength %>
+    <% end %>
   </div>
 
   <div class="field">
     <%= form.label :vitality %>
-    <%= form.number_field :vitality, :value => character.vitality  %>
+    <% if character.vitality.nil? %>
+      <%= form.number_field :vitality, :value => 0 %>
+    <% else %>
+      <%= form.number_field :vitality, :value => character.vitality  %>
+    <% end %>
   </div>
 
   <div class="field">
     <%= form.label :intelligence %>
-    <%= form.number_field :intelligence, :value => character.intelligence  %>
+    <% if character.intelligence.nil? %>
+      <%= form.number_field :intelligence, :value => 0 %>
+    <% else %>
+      <%= form.number_field :intelligence, :value => character.intelligence  %>
+    <% end %>
   </div>
 
   <div class="field">
     <%= form.label :dexterity %>
-    <%= form.number_field :dexterity, :value => character.dexterity  %>
+    <% if character.dexterity.nil? %>
+      <%= form.number_field :dexterity, :value => 0 %>
+    <% else %>
+      <%= form.number_field :dexterity, :value => character.dexterity  %>
+    <% end %>
   </div>
 
   <div class="field">
     <%= form.label :agility %>
-    <%= form.number_field :agility, :value => character.agility  %>
+    <% if character.agility.nil? %>
+      <%= form.number_field :agility, :value => 0 %>
+    <% else %>
+      <%= form.number_field :agility, :value => character.agility  %>
+    <% end %>
+
   </div>
 
   <div class="field">
     <%= form.label :wisdom %>
-    <%= form.number_field :wisdom, :value => character.wisdom  %>
+    <% if character.wisdom.nil? %>
+      <%= form.number_field :wisdom, :value => 0 %>
+    <% else %>
+      <%= form.number_field :wisdom, :value => character.wisdom  %>
+    <% end %>
   </div>
 
   <div class="field">
     <%= form.label :charisma %>
-    <%= form.number_field :charisma, :value => character.charisma  %>
+    <% if character.charisma.nil? %>
+      <%= form.number_field :charisma, :value => 0 %>
+    <% else %>
+      <%= form.number_field :charisma, :value => character.charisma  %>
+    <% end %>
   </div>
 
   <%= form.hidden_field :gp, value: 5 %>

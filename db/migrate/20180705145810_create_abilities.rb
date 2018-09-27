@@ -6,6 +6,7 @@ class CreateAbilities < ActiveRecord::Migration[5.2]
       t.string :range
       t.string :effect
       t.string :flair
+      t.integer :phase
 
       t.timestamps
     end

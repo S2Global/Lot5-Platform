@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 2018_09_26_222437) do
     t.string "range"
     t.string "effect"
     t.string "flair"
+    t.integer "phase"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "phase"
     t.index ["character_id"], name: "index_abilities_on_character_id"
   end
 
@@ -89,15 +89,6 @@ ActiveRecord::Schema.define(version: 2018_09_26_222437) do
     t.index ["character_id"], name: "index_items_on_character_id"
   end
 
-  create_table "playerlists", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "world_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_playerlists_on_user_id"
-    t.index ["world_id"], name: "index_playerlists_on_world_id"
-  end
-
   create_table "races", force: :cascade do |t|
     t.string "name"
     t.string "lore"
@@ -155,15 +146,6 @@ ActiveRecord::Schema.define(version: 2018_09_26_222437) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "worldcharacters", force: :cascade do |t|
-    t.bigint "character_id"
-    t.bigint "world_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["character_id"], name: "index_worldcharacters_on_character_id"
-    t.index ["world_id"], name: "index_worldcharacters_on_world_id"
-  end
-
   create_table "worlds", force: :cascade do |t|
     t.bigint "user_id"
     t.string "description"
@@ -179,12 +161,8 @@ ActiveRecord::Schema.define(version: 2018_09_26_222437) do
   add_foreign_key "characters", "users"
   add_foreign_key "characters", "worlds"
   add_foreign_key "items", "characters"
-  add_foreign_key "playerlists", "users"
-  add_foreign_key "playerlists", "worlds"
   add_foreign_key "sessioncharacters", "characters"
   add_foreign_key "sessioncharacters", "sessions"
   add_foreign_key "sessions", "worlds"
-  add_foreign_key "worldcharacters", "characters"
-  add_foreign_key "worldcharacters", "worlds"
   add_foreign_key "worlds", "users"
 end
