@@ -11,8 +11,8 @@
 	<h2>End Notes</h2>
 	<p><%= @session.notes %></p>
 
-	<% if @session.world.user == current_user %>
-		<%= link_to 'Add Notes', edit_world_session_path(@session.world), class: "btn btn-light shadow" %> 
+	<% if @session.world.user == current_user && @session.ongoing && @session.ended%>
+		<%= link_to 'Add Notes', '#', class: "btn btn-light shadow" %> 
 	<% end %>
 	<br><br>
 
