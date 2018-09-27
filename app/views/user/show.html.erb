@@ -17,12 +17,11 @@
 		<tbody>
 			<% @characters.each do |character| %>
 				<tr>
-					<td><%= character.name %></td>
+					<td><%= link_to character.name, character %></td>
 					<td><%= character.level %></td>
 					<td><%= character.race.name %></td>
 					<td><%= character.archetype.name %></td>
 					<td><%= character.role %></td>
-					<td><%= link_to 'Show', character %></td>
 				</tr>
 			<% end %>
 		</tbody>
@@ -45,9 +44,8 @@
 		<tbody>
 			<% @worlds.each do |world| %>
 				<tr>
-					<td><%= world.name %></td>
+					<td><%= link_to world.name, world %></td>
 					<td><%= world.description %></td>
-					<td><%= link_to 'Show', world %>
 				</tr>
 			<% end %>
 		</tbody>
