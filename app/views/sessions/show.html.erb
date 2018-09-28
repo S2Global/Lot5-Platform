@@ -41,7 +41,6 @@
 		</tbody>
 	</table>
 
-
 	<% if @session.world.user == current_user %>
 		<% if !@session.ongoing && !@session.ended %>
 			<%= link_to "Add Character", new_world_session_sessioncharacter_path(@session.world, @session.id), class: "btn btn-light shadow" %>
