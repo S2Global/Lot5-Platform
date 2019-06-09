@@ -10,7 +10,8 @@
 		</div>
 
 		<div class="actions">
-		    <%= form.submit "Add", class:"btn btn-light" %>
+		    <%= form.submit "Add", class: "btn btn-success shadow" %>
+		    <%= link_to "Back", world_session_path(@session.world, @session.id) , class: "btn btn-light shadow" %>
 		</div>
 
 	<% end %>

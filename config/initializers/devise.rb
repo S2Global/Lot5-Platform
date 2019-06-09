@@ -13,6 +13,8 @@ Devise.setup do |config|
 config.mailer_sender = 'mailer@example.com'
 config.omniauth :facebook, "198199691015004", "d5b44513d0356b0044f2b59d2dc04f56"
 
+config.secret_key = '0afadaeffdf489f69fcd2c0cb066918fb8a5df201314fbc623929e3439089222f759d92d3cb7f4aa8f279150017e14b8f6ecad98ec19294a3b98a0d43dae6aa5'
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'

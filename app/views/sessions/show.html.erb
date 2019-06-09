@@ -36,6 +36,15 @@
 					<td><%= character.character.race.name %></td>
 					<td><%= character.character.archetype.name %></td>
 					<td><%= character.character.role %></td>
+					<td><% if @session.world.user == current_user %>
+						<% if @session.ongoing && !@session.ended %>
+							<%= link_to world_session_path(@session.world, @session.id), class: "btn btn-default" do %>
+								<i class="glyphicon glyphicon-gift"></i>
+							<% end %>
+							<%= link_to "Give Gold", world_session_path(@session.world, @session.id) %>
+							<%= link_to "Short Rest", world_session_path(@session.world, @session.id) %>
+						<% end %>
+					<% end %></td>
 				</tr>
 			<% end %>
 		</tbody>
@@ -50,6 +59,7 @@
 		<% end %>
 		<% if @session.ongoing && !@session.ended %>
 			<%= link_to "Add Character", new_world_session_sessioncharacter_path(@session.world, @session.id), class: "btn btn-light shadow" %>
+			<%= link_to "Award Experience", world_session_path(@session.world, @session.id) , class: "btn btn-light shadow" %>
 			<br>
 			<br>
 			<%= link_to("End", world_session_path(@session.world, @session.id, "session[ended]" => true), :method => :put, class: "btn btn-danger shadow" )%>

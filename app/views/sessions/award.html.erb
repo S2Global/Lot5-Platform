@@ -1,0 +1,18 @@
+<div class="container">
+
+	<%= form_for ([@world, @session]) do |form| %>
+
+		<%= form.hidden_field :session_id, value: params[:session_id] %>
+
+		<div class="field">
+			<%= form.label :amount %><br/>
+			<%= form.number_field :amount %>
+		</div>
+
+		<div class="actions">
+		    <%= form.submit "Award", class:"btn btn-light" %>
+		</div>
+
+	<% end %>
+
+</div>

@@ -120,13 +120,16 @@
     <% end %>
   </div>
 
+  <div class="field">
+      <%= form.label :alive %>
+      <%= form.check_box :alive %>
+  </div>
+
   <%= form.hidden_field :gp, value: 5 %>
 
   <%= form.hidden_field :alive, value: true %>
 
   <%= form.hidden_field :played, value: 0 %>
-
-  <%= form.hidden_field :alive, value: true %>
 
   <div class="actions">
     <%= form.submit class:"btn btn-light" %>
